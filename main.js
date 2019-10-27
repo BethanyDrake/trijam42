@@ -124,7 +124,7 @@ const doAction = (action) => {
               addParagraph("Before you can exclaim either repulsion or delight, she pulls something out of your back pocket. Your lighter.");
               sheSaid("Is this what I think it is?");
               addParagraph("She flicks the lighter, and the spark catches. The small flame is blindingly bright.");
-              youSay("I knew I shouldn't quit smoking.");
+              youSay("Good thing I didn't quit smoking.");
               addParagraph("You take the lighter from her.");
               state = 4;
               break;
@@ -198,12 +198,12 @@ const doAction = (action) => {
                 default:
                   break;
               }
-
+              break;
               case 7:
                 switch (action) {
                   default:
                     addParagraph("Game Over", "wall");
-                    case = 8;
+                    state = 8;
                     break;
                 }
     default:

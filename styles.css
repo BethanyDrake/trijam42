@@ -3,7 +3,7 @@
 }
 
 .you {
-  color: orange;
+  color: blue;
 }
 
 .tag {
@@ -12,5 +12,5 @@
 
 .wall {
   color: black;
-  size: 30px;
+  font-size: 30px;
 }
