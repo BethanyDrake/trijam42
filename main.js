@@ -33,17 +33,19 @@ const enterState = () => {
   switch(state){
     case 0:
       sheSaid("Hello? Is anybody there?");
-      addElement(newButton("Hello?"));
-      addElement(newButton("No."));
+      addButton("Hello?");
+      addButton("No.");
       break;
     case 1:
-      addElement(newButton("Listen"));
-      addElement(newButton("Feel around."));
-      addElement(newButton("Try to remember."));
+      addButton("Listen");
+      addButton("Feel around");
+      addButton("Try to remember");
       break;
 
     case 2:
       sheSaid("We must be in the old underground railway.");
+      addButton("Check pockets");
+      addButton("Sob")
       break;
 
     case 3:
@@ -82,12 +84,12 @@ const doAction = (action) => {
             youSay("Are we in a cave?");
             state = 2;
             break;
-          case "Feel around.":
+          case "Feel around":
             addParagraph("You stretch out you fingers, gingerly. They brush the cold, rough surface of a brick wall. You move your feet around, and kick something hard and metallic.");
             youSay("Ow.");
             state = 3;
             break;
-          case "Try to remember.":
+          case "Try to remember":
             addParagraph("You strain your memory. You were on the train, coming back from the night shift. Did you get off the train? You don't remember. Your head aches too.");
             youSay("The last thing I remember is being on the train.");
             state = 2;
@@ -99,6 +101,24 @@ const doAction = (action) => {
         break;
         case 2:
           switch (action) {
+            case "Sob":
+              addParagraph("It's dark. It's cold. You don't know how to get home. You can't help it. Tears spring to your eyes, and before you know it, they're tumbling down your cheeks. Sobs rack your body, and you sniff, acomplishing nothing.");
+              sheSaid("Oh, um, it's okay! We just have to find our way out of here!");
+              addParagraph("She clumbsiliy makes her way over to you and wraps you in a hug. She's soft and warm, and you feel a little better.");
+              addParagraph("Then, her hands drop to your bum. You stiffen awkwardly.");
+              youSay("Uhh--");
+              addParagraph("Before you can exclaim either repulsion or delight, she pulls something out of your back pocket. Your lighter.");
+              sheSaid("Is this what I think it is?");
+              addParagraph("She flicks the lighter, and the spark catches. The small flame is blindingly bright.");
+              youSay("I knew I shouldn't quit smoking.");
+              addParagraph("You take the lighter from her.");
+              state = 4;
+              break;
+            case "Check pockets":
+              addParagraph("You pat down your pockets. Your phone is gone. Your wallet is gone. Your cigarettes are gone. But when you check your back pocket -- jackpot!");
+              addParagraph("You flick the lighter, and the spark catches. The small flame is blindingly bright.");
+              state = 4;
+            break;
             default:
 
               break;
