@@ -9,3 +9,8 @@
 .tag {
   color: black;
 }
+
+.wall {
+  color: black;
+  size: 30px;
+}

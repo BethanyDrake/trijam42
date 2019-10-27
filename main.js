@@ -54,6 +54,20 @@ const enterState = () => {
       addButton("Yes");
       addButton("No");
       break;
+
+    case 4:
+      addParagraph("Her face is pale and covered in dirt. She smiles weakly at you.");
+      addParagraph("The two of you are in a red-brick tunnel, just wide enough for a single train to pass through.");
+      addButton("Go left");
+      addButton("Go right");
+
+      break;
+    case 7:
+      addParagraph("You're alone in the dark. Except you're not.");
+      addParagraph("You stop breathing.");
+      addParagraph("You hear a soft, slow breath. You feel moist air on your face.");
+      addButton("Close eyes");
+      addButton("Scream");
     default:
       break;
   }
@@ -137,6 +151,61 @@ const doAction = (action) => {
               state = 2;
               break;
           }
+
+          break;
+          case 4:
+            switch (action) {
+              default:
+                addParagraph("You lead her down the tunnel, holding up your lighter.");
+                sheSaid("Beware the straight.");
+                addParagraph("The hair on the back of your neck prickels at her words. Then you see what she was reading: black, ugly graffeti on the otherwise featureless tunnel walls." );
+                addParagraph("BEWARE THE STRAIGHT", "wall");
+                youSay("What's a straight?");
+                sheSaid("Like a ghost, I think.");
+                youSay("Isn't that a wraith?");
+                sheSaid("I don't know then.");
+                addButton("Continue");
+                state = 5;
+                break;
+            }
+            break;
+            case 5:
+              switch (action) {
+                default:
+                  addParagraph("You continue down the tunnel. You keep telling yourself that the tunnel has to end eventually.");
+                  addParagraph("You hear a noise.");
+                  addButton("Run");
+                  addButton("Turn around")
+                  state = 6;
+                  break;
+              }
+            break;
+            case 6:
+              switch (action) {
+                case "Run":
+                  addParagraph("You're not sure what the noise was, but it was lound and scary. You break into a sprint. She is right behind you, running too.");
+                  addParagraph("Your foot catches on a sleeper, and you trip. You smack face first onto the ground. The lighter flies from your hand and goes out.");
+                  sheSaid("Come on!")
+                  addParagraph("She doesn't stop. She runs past you, footsteps vanishing down the tunnel.");
+                  state = 7;
+                break;
+                case "Turn around":
+                  addParagraph("You're not sure what the noise was, so you turn to investigate. The shadows shift with the flicker of the flame, but before you can figure out what any of them might be, the flame dies.");
+                  sheSaid("Come on.");
+                  addParagraph("She doesn't wait for you. She walks past you, footsteps vanishing down the tunnel.");
+                  state = 7;
+                break;
+                default:
+                  break;
+              }
+
+              case 7:
+                switch (action) {
+                  default:
+                    addParagraph("Game Over", "wall");
+                    case = 8;
+                    break;
+                }
     default:
       break;
   }
